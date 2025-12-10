@@ -19,6 +19,11 @@ dependencyResolutionManagement {
     }
 }
 
+// 启用工具链自动下载
+plugins {
+    id("org.gradle.toolchains.foojay-resolver-convention") version "0.8.0"
+}
+
 rootProject.name = "PhotoEditor"
 include(":app")
  

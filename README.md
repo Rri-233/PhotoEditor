@@ -1,13 +1,86 @@
 # PhotoEditor
 
-Android Kotlin photo editing app for course assignment. Work in progress.
+一个用 **Kotlin** 编写的轻量级 Android 图片编辑 App，支持 **裁剪、旋转/翻转、滤镜、文字叠加、拼图、保存与分享** 等常用操作，适合日常社交分享与简单修图场景。
 
-## Build
+---
 
-```bash
-export JAVA_HOME="/Applications/Android Studio.app/Contents/jbr/Contents/Home"
-export PATH="$JAVA_HOME/bin:$PATH"
-cd /Users/zjr/AndroidStudioProjects/PhotoEditor
-./gradlew assembleDebug
-```
+## 功能概览
 
+- **导入图片**
+  - 从相册选择单张图片
+  - 调用相机拍照并导入
+
+- **查看与变换**
+  - 图片缩放、拖动查看细节
+  - 裁剪：自由裁剪 + 固定比例（`1:1` / `4:3` / `16:9` / `3:4` / `9:16`）
+  - 旋转：`+90°` / `-90°` / `180°`
+  - 翻转：水平 / 垂直
+
+- **参数调节（实时预览）**
+  - 亮度（-100 ~ 100）
+  - 对比度（-50 ~ 150）
+
+- **文字编辑（图层叠加）**
+  - 自定义文字内容（支持换行）
+  - 字体（至少 3 种）、字号、颜色、透明度
+  - 拖动平移、双指缩放、旋转文字
+
+- **基础滤镜（手动实现）**
+  - 原图 / 黑白 / 复古 / 清新 / 暖色调 / 冷色调
+
+- **拼图（2–4 张）**
+  - 横向拼接
+  - 纵向拼接
+  - `2×2` 网格
+
+- **导出与分享**
+  - 保存到相册
+  - 调用系统分享面板（可分享至抖音等）
+
+- **主题**
+  - 夜间模式支持
+
+- **贴纸功能**
+  - 暂未实现（已预留扩展点）
+
+---
+
+## 技术栈
+
+- **语言**：Kotlin  
+- **最低版本**：Android 10（API 29）  
+- **目标版本**：Android 14（API 34）
+
+### 主要依赖
+- AndroidX / Material Components  
+- ViewModel + LiveData（MVVM）  
+- Kotlin Coroutines（异步处理）  
+- ViewBinding  
+- Glide（图片加载）
+
+> 核心编辑逻辑（裁剪、旋转、翻转、滤镜、文字叠加等）均基于 **Bitmap + Canvas + ColorMatrix** 手动实现。
+
+---
+
+## 项目结构（简要）
+
+- `MainActivity`：应用入口，负责主页与编辑界面跳转  
+- `EditorFragment`：主要编辑界面  
+- `EditorViewModel`：编辑状态与业务逻辑（滤镜、裁剪、保存等）  
+- `EditorCanvasView`：自定义 View，负责图片渲染与手势（缩放、拖动）  
+- `MovableTextView`（及文本相关类）：图片上的文字图层（拖动 / 缩放 / 旋转）
+
+---
+
+## 如何运行
+
+1. 使用 **Android Studio** 打开项目  
+2. 确保本地安装：
+   - **JDK 17**
+   - **Android SDK 34**
+3. 连接真机或启动模拟器  
+4. 点击 **Run** 运行，或执行构建命令：
+   ```bash
+   ./gradlew assembleDebug
+5. APK 输出位置（默认）：
+	•	app/build/outputs/apk/debug/

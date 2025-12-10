@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 夜间模式编辑器颜色 -->
+    <color name="editor_top_bar_bg">#1E1E1E</color>
+    <color name="editor_icon_tint">#E0E0E0</color>
+    <color name="editor_panel_bg">#222222</color>
+</resources>

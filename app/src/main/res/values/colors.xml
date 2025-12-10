@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
+    
+    <!-- 编辑器颜色 -->
+    <color name="editor_top_bar_bg">#FFFFFF</color>
+    <color name="editor_icon_tint">#333333</color>
+    <color name="editor_panel_bg">#FFFFFF</color>
 </resources>

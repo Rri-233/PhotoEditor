@@ -7,12 +7,63 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <!-- Host fragment for the editor UI -->
-    <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/editor_nav_host"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+    <!-- 顶部应用标题 -->
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Photo Editor"
+        android:textSize="20sp"
+        android:textStyle="bold"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="32dp"
+        android:gravity="center" />
+
+    <!-- 中间：导入图片 / 拍照 按钮 -->
+    <LinearLayout
+        android:id="@+id/home_buttons_container"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        app:layout_constraintTop_toBottomOf="@id/tv_title"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <Button
+            android:id="@+id/btn_home_pick_gallery"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="从相册选择" />
+
+        <Button
+            android:id="@+id/btn_home_take_photo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="拍照"
+            android:layout_marginTop="16dp" />
+
+        <Button
+            android:id="@+id/btn_home_collage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="拼图 (2-4张)"
+            android:layout_marginTop="16dp" />
+    </LinearLayout>
+    
+
+    <!-- 底部信息 -->
+    <TextView
+        android:id="@+id/tv_footer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Made by Jerry Zheng"
+        android:textStyle="bold"
+        android:textSize="14sp"
+        android:layout_marginBottom="24dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />

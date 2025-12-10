@@ -4,13 +4,19 @@
 
     <!-- Camera permission for taking photos -->
     <uses-permission android:name="android.permission.CAMERA" />
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false" />
 
     <!-- Media/gallery permissions for reading images across Android versions -->
     <!-- Android 13+ and above: read media images -->
     <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
 
     <!-- Android 10–12: legacy external storage read permission -->
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission
+        android:name="android.permission.READ_EXTERNAL_STORAGE"
+        android:maxSdkVersion="32"
+        tools:targetApi="tiramisu" />
 
     <application
         android:allowBackup="true"
